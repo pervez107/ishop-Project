@@ -31,7 +31,7 @@ An e-commerce web application that allows users to browse, filter, and purchase 
 ---
 
 ## 📁 Project Structure
-
+```
 ├──ishop-react-app / # React Frontend
 │ ├── public/
 │ └── src/
@@ -43,7 +43,7 @@ An e-commerce web application that allows users to browse, filter, and purchase 
 │ ├── routes/
 │ ├── models/
 │ └── index.js
-
+```
 ---
 
 ## 📦 Setup Instructions
