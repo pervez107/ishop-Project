@@ -1,11 +1,16 @@
 import axios from "axios";
 import { useFormik } from "formik";
+import { useState } from "react";
 import { useNavigate,Link } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+
 
 
 export function UserLogin(){
 
     const navigate=useNavigate();
+    const [user,setUser]=useState([{UserId:'',FirstName:'',LastName:'',Password:'',Email:'',Mobile:''}]);
+    const [cookies,setCookies,removeCookies]=useCookies(['username'])
     const formik=useFormik({
         initialValues:{
             UserId:'',
@@ -17,7 +22,8 @@ export function UserLogin(){
                 var data=response.data.find(item=>item.UserId===user.UserId);
                 if(data){
                     if(data.Password===user.Password){
-                        navigate('/');
+                        setCookies('username',`${data.FirstName}${data.LastName}`);
+                        navigate('/user-dash');
                     }else{
                         alert('Invalid Password');
                     }

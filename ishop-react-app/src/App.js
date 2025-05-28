@@ -5,6 +5,7 @@ import { AdminLogin } from './components/adminlogin';
 import { UserLogin } from './components/userlogin';
 import { AdminDash } from './components/admin-dashbord';
 import { UserRegister } from './components/user-Register';
+import { UserDash } from './components/user-dashboard';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path='user-login' element={<UserLogin/>} />
             <Route path='admin-dash' element={<AdminDash/>}/>
             <Route path='user-register' element={<UserRegister/>} />
+            <Route path='user-dash' element={<UserDash/>} />
           </Routes>
         </BrowserRouter>
       </div>

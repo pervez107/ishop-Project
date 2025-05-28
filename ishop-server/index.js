@@ -1,13 +1,14 @@
 const mongoClient=require('mongodb').MongoClient;
 var express=require('express');
 var cors=require('cors');
+require('dotenv').config();
 
 var app=express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cors());
 
-var connectionStr="mongodb://127.0.0.1:27017";
+var connectionStr=process.env.MONGO_URL;
 
 app.get('/products',(req,res)=>{
     mongoClient.connect(connectionStr).then(clientObj=>{
@@ -42,7 +43,7 @@ app.get('/categories',(req,res)=>{
 app.get('/categories/:category',(req,res)=>{
     mongoClient.connect(connectionStr).then(clientObj=>{
         var database=clientObj.db('ishopdb');
-        database.collection('tblcategories').find({CategoryName:req.params.category}).toArray().then(document=>{
+        database.collection('tblproducts').find({category: req.params.category}).toArray().then(document=>{
             res.send(document);
             res.end();
         });
@@ -105,6 +106,5 @@ app.post('/adminregister',(req,res)=>{
         });
     });
 });
-
-app.listen(8080);
-console.log('server:-127.0.0.1:8080');
+var port=process.env.PORT || 8080;
+app.listen(port,()=>{console.log('server:-127.0.0.1:8080');});
