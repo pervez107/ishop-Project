@@ -15,7 +15,7 @@ export function UserRegister(){
             Mobile:'',
             Address:''
         },onSubmit:(data)=>{
-            axios.post('http://127.0.0.1:8080/customerregister',data)
+            axios.post('https://ishop-project.onrender.com/customerregister',data)
             .then(res=>{
                 alert(res.data);
                 navigate('/user-login');

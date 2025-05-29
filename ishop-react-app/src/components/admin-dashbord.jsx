@@ -7,7 +7,7 @@ export function AdminDash(){
     const [products,setProduct]=useState([{id:0,title:'',image:'',price:0}]);
 
     useEffect(()=>{
-        axios.get(`http://127.0.0.1:8080/products`)
+        axios.get(`https://ishop-project.onrender.com/products`)
         .then(response=>{
             setProduct(response.data);
         })

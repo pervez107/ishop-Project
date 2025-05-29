@@ -17,7 +17,7 @@ export function UserLogin(){
             Password:''
         },
         onSubmit:(user)=>{
-            axios.get(`http://127.0.0.1:8080/getcustomers`)
+            axios.get(`https://ishop-project.onrender.com/getcustomers`)
             .then(response=>{
                 var data=response.data.find(item=>item.UserId===user.UserId);
                 if(data){

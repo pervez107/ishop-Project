@@ -13,7 +13,7 @@ export function AdminLogin(){
             Password:''
         },
         onSubmit:(admin)=>{
-            axios.get(`http://127.0.0.1:8080/getadmins`)
+            axios.get(`https://ishop-project.onrender.com/getadmins`)
             .then(response=>{
                 var user=response.data.find(item=>item.UserId===admin.UserId);
                 if(user){

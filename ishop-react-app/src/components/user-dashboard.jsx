@@ -12,14 +12,14 @@ export function UserDash(){
     const [selectedcategory,setSelectedCategory]=useState('');
 
     function loadprodcts(){
-        axios.get(`http://127.0.0.1:8080/products`)
+        axios.get(`https://ishop-project.onrender.com/products`)
         .then(res=>{
             setProducts(res.data);
         })
     }
 
     function Loadcategory(){
-        axios.get(`http://127.0.0.1:8080/categories`)
+        axios.get(`https://ishop-project.onrender.com/categories`)
         .then(res=>{
             setCategories(res.data);
         })
@@ -42,7 +42,7 @@ export function UserDash(){
 }
 
     function loadCategoryProduct(str){
-        axios.get(`http://127.0.0.1:8080/categories/${str}`)
+        axios.get(`https://ishop-project.onrender.com/categories/${str}`)
         .then(res=>{
             setProducts(res.data)
         })
